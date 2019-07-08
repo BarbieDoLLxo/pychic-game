@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>The Psychic Game</title>
+
+
+
+      <script text="text/javascript">
+
+      
+var winsCount=0;
+var input;
+var i=0; 
+var lossesCount=0;
+var guessLeft=9;
+
+var letters= ["A", "B", "C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R",
+"S","T","U","V","W","X","Y","Z",];
+
+var userGuessarray =[];
+var userGuess;
+
+var number= Math.floor(Math.random() * 26);
+console.log(number);
+
+console.log(letters[number]);
+
+var computer= letters[number];
+
+console.log(computer);
+
+
+document.onkeyup = function(event)
+{ 
+  userGuess= event.key.toUpperCase();
+  console.log(userGuess);
+
+  userGuessarray.push(userGuess);
+  console.log(userGuessarray);
+
+
+
+
+function userinput()
+{
+
+document.getElementById("your-guesses").append(document.createTextNode(userGuessarray[i]));
+i++;
+
+
+}
+console.log(computer);
+
+if (userGuess=== computer){
+  alert("You Win")
+  winsCount=winsCount+1;
+  
+document.getElementById("wins").textContent=winsCount;
+
+}
+
+
+else{
+
+guessLeft=guessLeft-1;
+document.getElementById("Guesses-Left").textContent=guessLeft;
+userinput();
+}
+
+
+if(guessLeft===0){
+
+lossesCount=lossesCount+1;
+document.getElementById("losses").textContent=lossesCount;
+alert("You Lose")
+}
+
+};
+
+</script>
+ </head>
+
+  
+ <body>
+<div> 
+<h1>
+
+  Psychic Game
+
+</h1>
+
+</div>
+
+<div>
+  <h2>
+
+    Guess What Number I'm Thinking 
+
+  </h2>
+
+
+
+  <p> 
+    Wins
+<span id="wins">0
+
+</span>
+
+  </p>
+  <p>
+    Losses
+<span id="losses">0
+
+</span>
+  </p>
+
+<p>
+Guesses Left
+<span  id="Guesses-Left">9
+
+</span>
+</p>
+<p> 
+  Your Guesses So Far 
+  <span id="your-guesses">
+
+  </span>
+</p>
+
+
+</div>
+  </body>
+  </html>
